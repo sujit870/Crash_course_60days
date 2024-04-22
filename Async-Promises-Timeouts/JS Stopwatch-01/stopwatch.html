@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stopwatch</title>
+	<style>
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background-color: #f0f0f0;
+		}
+
+		.stopwatch {
+			display: inline-block;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		.time {
+			font-size: 60px;
+			font-weight: bold;
+		}
+
+		button {
+			margin-top: 20px;
+			padding: 10px 20px;
+			font-size: 20px;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #f0f0f0;
+		}
+	</style>
+</head>
+<body>
+	<div class="stopwatch">
+		<div class="time">
+			<span id="hours">00</span>:
+			<span id="minutes">00</span>:
+			<span id="seconds">00</span>
+		</div>
+		<button id="toggle">Start</button>
+		<button id="reset">Reset</button>
+	</div>
+
+	<script>
+		let timer;
+		let hours = 0;
+		let minutes = 0;
+		let seconds = 0;
+		let isRunning = false;
+
+		document.getElementById("toggle").addEventListener("click", function() {
+			if (!isRunning) {
+				timer = setInterval(() => {
+					seconds++;
+					if (seconds == 60) {
+						minutes++;
+						seconds = 0;
+					}
+					if (minutes == 60) {
+						hours++;
+						minutes = 0;
+					}
+					document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+					document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+					document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+				}, 1000);
+				isRunning = true;
+				document.getElementById("toggle").innerText = "Pouse";
+			} else {
+				clearInterval(timer);
+				isRunning = false;
+				document.getElementById("toggle").innerText = "Start";
+			}
+		});
+
+		document.getElementById("reset").addEventListener("click", function() {
+			clearInterval(timer);
+			hours = 0;
+			minutes = 0;
+			seconds = 0;
+			document.getElementById("hours").innerText = "00";
+			document.getElementById("minutes").innerText = "00";
+			document.getElementById("seconds").innerText = "00";
+			document.getElementById("toggle").innerText = "Start";
+			isRunning = false;
+		});
+	</script>
+</body>
+</html>

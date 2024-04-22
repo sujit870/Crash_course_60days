@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // Create a container div with id "main"
+const mainContainer = document.createElement('div');
+mainContainer.id = 'main';
+document.body.appendChild(mainContainer);
+
+// Apply styles to the main container
+mainContainer.style.width = '100%';
+mainContainer.style.textAlign = 'center';
+mainContainer.style.fontFamily = 'Arial, sans-serif';
+
+// Create and append the page title
+const title = document.createElement('h1');
+
+mainContainer.appendChild(title);
+
+// Create and append the subtitle for strategic investors
+const subtitle = document.createElement('h2');
+subtitle.textContent = 'Strategic Investors';
+
+subtitle.style.fontWeight='bold'
+subtitle.style.fontFamily='sans-serif';
+mainContainer.appendChild(subtitle);
+
+// Create a parent div with id "parent2" to hold investor cards
+const parentContainer = document.createElement('div');
+parentContainer.id = 'parent2';
+mainContainer.appendChild(parentContainer);
+
+// Apply flexbox styles to the parent container
+parentContainer.style.width = '98%';
+parentContainer.style.display = 'flex';
+parentContainer.style.flexWrap = 'nowrap';  // Ensures all cards are on one line
+parentContainer.style.justifyContent = 'space-between';
+parentContainer.style.margin = 'auto';
+parentContainer.style.gap='8px';
+
+// Create an array of objects representing the investors
+const investors = [
+    {
+        name: 'Vijay Shekhar Sharma',
+        role: 'Founder & CEO',
+        imageUrl: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg',
+        companyLogoUrl: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg',
+        companyName: 'Paytm'
+    },
+    {
+        name: 'Kunal Shah',
+        role: 'Founder',
+        imageUrl: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png',
+        companyLogoUrl: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png',
+        companyName: 'CRED'
+    },
+    {
+        name: 'Amrish Rau',
+        role: 'CEO',
+        imageUrl: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg',
+        companyLogoUrl: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png',
+        companyName: 'Pine Labs'
+    },
+    {
+        name: 'Sampad Swain',
+        role: 'Co-Founder & CEO',
+        imageUrl: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg',
+        companyLogoUrl: 'https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png',
+        companyName: 'Instamojo'
+    }
+];
+
+// Function to create a card for each investor
+function createInvestorCard(investor) {
+    // Create the card div
+    const cardDiv = document.createElement('div');
+    
+    // Apply styles to the card div
+    cardDiv.style.width = '300px';
+    cardDiv.style.margin = '1% 0%';
+    cardDiv.style.paddingTop = '0.55%';
+    cardDiv.style.boxShadow = 'rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px';
+    cardDiv.style.borderRadius = '9px';
+    cardDiv.style.backgroundColor = 'rgba(236, 236, 236, 0.966)';
+    
+    // Create and append the investor's image
+    const image = document.createElement('img');
+    image.className = 'pic';
+    image.src = investor.imageUrl;
+    image.alt = investor.name;
+    cardDiv.appendChild(image);
+    
+    // Apply styles to the image
+    image.style.width = '100%';
+    image.style.height = 'auto';
+    image.style.display = 'block';
+    
+    // Create and append the investor's name
+    const name = document.createElement('h3');
+    name.textContent = investor.name;
+    name.style.fontSize='small'
+    cardDiv.appendChild(name);
+    
+    // Create and append the investor's role
+    const role = document.createElement('p');
+    role.textContent = investor.role;
+    role.style.fontSize='8px'
+    cardDiv.appendChild(role);
+    
+    // Create and append the company's logo
+    const companyLogo = document.createElement('img');
+    companyLogo.className = 'logo';
+    companyLogo.src = investor.companyLogoUrl;
+    companyLogo.alt = investor.companyName;
+    cardDiv.appendChild(companyLogo);
+    
+    // Apply styles to the company logo
+    companyLogo.style.width = '40%';
+    companyLogo.style.margin = 'auto'; // Center the logo within the card
+    companyLogo.style.display = 'block';
+    
+    return cardDiv;
+}
+
+// Iterate through the array of investors and create a card for each one
+investors.forEach((investor) => {
+    const investorCard = createInvestorCard(investor);
+    parentContainer.appendChild(investorCard);
+});
+ 
+</script>

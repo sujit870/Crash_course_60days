@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+           
+        }
+        #parent{
+            background-color: white;
+            height:700px;
+            width: 35%;
+            margin: auto;
+            padding: 10px;
+            font-family: sans-serif;
+        
+        }
+        #parent>img+img{
+            margin-top: 20px;
+            height: 200px;
+            width: 320px;
+        }
+       
+    </style>
+</head>
+<body>
+
+  <div id="parent">
+    <img src="https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/masai_logo.svg" alt="">
+    <img src="https://masai-course.s3.ap-south-1.amazonaws.com/resources/images/masai_banner.jpg" alt="image">
+    <p>
+        We will be learning the following things this week:
+    </p>
+
+    <!-- table  -->
+
+    <table>
+        <tr>
+            <th>Day 1</th>
+            <th>Day 2</th>
+            <th>Day 3</th>
+            <th>Day 4</th>
+
+        </tr>
+
+        <tr>
+            <td>Linux</td>
+            <td>HTML</td>
+            <td>Linux 2</td>
+            <td>Linux 3</td>
+
+        </tr>
+
+        <tr>
+            <td>GIT 1</td>
+            <td>CSS</td>
+            <td>Git 2</td>
+            <td>Bootstrap</td>
+
+        </tr>
+    </table>
+
+    <p>
+        If you want to contact me, please fill in this form:
+
+    </p>
+    <!-- form -->
+      <form >
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text"></td> 
+            </tr>   
+
+            <tr>
+                <td>Phone no:</td>
+                <td><input type="number"></td>
+            </tr>
+
+            <tr>
+                <td>email id:</td>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+      </form>
+   
+      <p>The following things are important to be a programmer</p>
+<!-- 
+      list  -->
+      <ul >
+
+        <li>A problem solving mindset</li>
+        
+        <li>Consistency </li>
+       
+        <ul type="circle">
+            <li>Clean code </li>
+           
+            <li>Thorough knowledge of core concepts </li>
+           
+            <li> Readable code  </li>
+          
+         </ul>
+        <li>Speed</li>
+
+     </ul>
+
+     
+    
+  </div>
+</body>
+</html>     

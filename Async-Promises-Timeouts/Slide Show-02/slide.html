@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slideshow</title>
+    <style>
+      .slideshow-container {
+        position: relative;
+        width: 50%;
+        margin: 0 auto;
+        overflow: hidden;
+        border: 2px solid #ccc;
+      }
+
+      .slide {
+        display: none;
+        text-align: center;
+      }
+
+      .slide img {
+        max-width: 100%;
+        height: 100%;
+        width: 100%;
+      }
+
+      .controls {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      button {
+        margin: 0 10px;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px; /**/
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      button:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow-container">
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQMiwD52kTx1_Ozy8ES4ANx3YB-gthFnYJ1g&usqp=CAU"
+          alt="Slide 1"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2rnPsS6TTH0uF0jo5_yyGDY1Yd8RN-YUemA&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJorZSRbl1GPUp1QM3WGXl_UPca0X4yohb6g&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqaziRYtq_QLN6807FquXoEDSBLGsOUCvULg&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjIqwzAfIkeR__tXam9UkFeDGLPthC2BfgSw&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR33slFRC7rmMs6xPReJy1lljw51zB2vMcImA&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmCE39OAdvDz_2sGYttg6TD7Yda99KoLQmer4JF8YQyjD9GlFY3WhDQtU85A1aLUGMDo8&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJZusiwlI6VSThDVPyeo5nDM3_7HtwshAR0Q&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgC8FFBxwVaO22uZnD7av137txw3U9ERuW6w&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQKVRwHCWWsbuX5RHEwDZMccK9MIPiF0ERLg&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpKrwISoy2ggIlbtB96CYxw0F0AeBLPMmmQRK8rAhk430wSHdTHJe-Gzdsa-MAM3s5Pcc&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJEiqX0TZLi1ZUzGyzRmWt8dGM2v57JGnaDQaajeJR7VhL4L3yhg7C7-fRTgin9CilnIg&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRosQv8Lk79eWzSj6T2t5YFUMiOgT6lih3g6FPFJvFlu5dig6gWG5B7qK2qCQqG9LT3NPA&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaRBstYEARJ1svnNU01UUwFy-jIzxDNdcfzA&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGP8zUVHx-jp7XuAxfwMzvJ-4r6WJg2tmTyg&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQieB3WUy4IQLG3QcTPOpIFp8Pa6tv8KE9-alopPBZH1qir3ek1NWWv7MxL4X__Q7mA51Q&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThyRINw1aJ9qor_qOB_LBHx4-i-hcrZV2RhQ&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqKqVgHFC3jquHfBTPaUXBkKry6RPSLKr_lw&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzfYa8CsvnfqubvDs2aBKFgjrnfiFgA1BYcw&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+      <div class="slide">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYpF8vhMYPfX9W5Wuf6di3_9fcotISQ0ln60Yt-UMKwvIWkeBQB7-hfmJ5IYAILhtSeb8&usqp=CAU"
+          alt="Slide 2"
+        />
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="prevBtn">Previous</button>
+      <button id="startStopBtn">Start</button>
+      <button id="nextBtn">Next</button>
+    </div>
+
+    <script>
+      let currentIndex = 0;
+      let intervalId = null;
+      const slides = document.querySelectorAll(".slide");
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.style.display = "block";
+          } else {
+            slide.style.display = "none";
+          }
+        });
+      }
+
+      function startStopSlideShow() {
+        const startStopBtn = document.getElementById("startStopBtn");
+        if (intervalId) {
+          clearInterval(intervalId);
+          intervalId = null;
+          startStopBtn.textContent = "Start";
+        } else {
+          intervalId = setInterval(nextSlide, 2000);
+          startStopBtn.textContent = "Stop";
+        }
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      document
+        .getElementById("startStopBtn")
+        .addEventListener("click", startStopSlideShow);
+      document.getElementById("nextBtn").addEventListener("click", () => {
+        clearInterval(intervalId);
+        intervalId = null;
+        nextSlide();
+      });
+      document.getElementById("prevBtn").addEventListener("click", () => {
+        clearInterval(intervalId);
+        intervalId = null;
+        prevSlide();
+      });
+
+      showSlide(currentIndex);
+    </script>
+  </body>
+</html>

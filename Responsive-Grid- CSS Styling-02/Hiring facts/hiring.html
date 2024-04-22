@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"  />
+    <title>Document</title>
+   <style>
+     .parent-container{
+  display: flex;
+  /* border: 2px solid black; */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 15px;
+  background-color: #e1eff7;
+  width: 70%;
+  height: 150px;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+     justify-content: center;
+    justify-content: space-evenly;
+  
+  
+}
+
+.parent-container>div{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 15px;
+    /* border: 2px solid blue; */
+    background-color: whitesmoke;
+   
+    justify-content: center;
+   
+     height: 80%;
+    
+    width:17%;
+
+
+}
+.parent-container>div>div{
+    /* border: 2px solid black; */
+    margin: auto;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+    height: 35px;
+    width: 35px;
+    margin-top: 10px;
+   
+}
+
+.parent-container>div>div+p{
+    text-align: center;
+   
+}
+
+.parent-container>div>div+p,p{
+    text-align: center;
+   font-size: small;
+
+ 
+
+}
+.parent-container>div>div+p+p{
+  color: blue;
+  font-weight: bold;
+  font-family: sans-serif;
+;
+}
+#last{
+    color: black
+    ;
+}
+
+.parent-container>div>div{
+    color: blue;
+   }
+
+   h3{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: medium;
+   }
+
+
+
+
+
+   </style>
+</head>
+<body>  
+     <h3>Hiring Facts</h3>
+   
+    
+    <div class="parent-container">
+        <div>
+            <div><i class="fa-solid fa-person-hiking"></i></i></div>
+            <p>✔️Hiring process</p>
+            <p>3 Days</p>
+        </div>
+        <div>
+            <div><i class="fa-regular fa-calendar-check"></i></i></div>
+            <p>Offer Acceptance</p>
+            <p>90%</p>
+        </div>
+        <div>
+            <div><i class="fa-solid fa-user-check"></i></div>
+            <p>Retention Rate</p>
+            <p>93%</p>
+        </div>
+        <div>
+            <div><i class="fa-brands fa-accessible-icon"></i></i></div>
+            <p>Hiring partners</p>
+            <p>4000+</p>
+        </div>
+        <div>
+            <div><i class="fa-solid fa-phone"></i></div>
+            <p>Year Round</p>
+            <p id="last">Availability</p>
+        </div>
+    </div>
+    
+</body>
+</html>

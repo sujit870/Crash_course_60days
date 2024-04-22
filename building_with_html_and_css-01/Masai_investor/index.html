@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    h2 {
+      text-align: center;
+
+      font-weight: bold;
+    }
+    .parent-board {
+      width: 70%;
+      display: flex;
+      margin: auto;
+    }
+    .parent-board > div {
+      width: 30%;
+     
+    }
+    .parent-board > div > img {
+      height: 100%;
+      width: 100%;
+    }
+
+    .parent-board ~ div {
+      display: flex;
+      width: 70%;
+     
+      margin: auto;
+      gap: 10px;
+
+    }
+    .parent-board ~ div > div {
+      /* border: 2px solid black; */
+
+      width: 30%;
+      height: 100%;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      padding-bottom: 10px;
+      
+    }
+    .parent-board ~ div > div > img {
+      height: 70%;
+      width: 100%;
+    }
+    .parent-board ~ div > div > img + h3 + p + img {
+      width: 50%;
+      height: 30px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p,
+    h3
+     {
+      text-align: center;
+     
+      font-family: sans-serif;
+      font-size: small;
+    }
+
+    h2{
+      text-align: center;
+     font-weight: bold;
+      font-family: sans-serif;
+    }
+  </style>
+
+  <body>
+    <h2>Board Members</h2>
+    <div class="parent-board">
+      <div>
+        <img
+          src="https://www.masaischool.com/images/our-investors/india-q-borderless.svg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://www.masaischool.com/images/our-investors/capria-logo.svg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://www.masaischool.com/images/our-investors/omidyar-borderless.svg"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <h2>Strategic Investors</h2>
+
+    <div>
+      <div>
+        <img
+          src="https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg"
+          alt=""
+        />
+
+        <h3>Vijay Shekhar Sharma</h3>
+        <p>Founder & CEO</p>
+
+        <img
+          src="https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png"
+          alt=""
+        />
+
+        <h3>Kunal Shah</h3>
+        <p>Founder</p>
+        <img
+          src="https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg"
+          alt=""
+        />
+
+        <h3>Amrish Rau</h3>
+        <p>CEO</p>
+        <img
+          src="https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png"
+          alt=""
+        />
+      </div>
+      <div>
+        <img
+          src="https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg"
+          alt=""
+        />
+
+        <h3>Sampad Swain</h3>
+        <p>Co-Founder & CEO</p>
+        <img
+          src="https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
+</html>

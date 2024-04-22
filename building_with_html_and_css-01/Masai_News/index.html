@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        #container {
+            width: 70%;
+            height: 160px;
+            margin: auto;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #container > div {
+            border: 2px solid white;
+            width: 30%;
+            height: 140px;
+            background-color: rgba(85, 194, 252, 0.235);
+            border-radius: 20px;
+        }
+
+        #container > div > img {
+            width: 100px;
+            height: 100px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 10px;
+            border-radius: 20px;
+        }
+
+        #container > div:nth-child(1) > img {
+            width: 80%;
+            height: 70px;
+            margin: auto;
+            display: block;
+            padding-top: 35px;
+        }
+
+        #container > div:nth-child(2) > img {
+            width: 200px;
+            height: 140px;
+            display: block;
+            border-radius: 9%;
+            margin: auto;
+            margin-bottom: 100px;
+        }
+
+        #container + div {
+            width: 70%;
+            height: 160px;
+            margin: auto;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #container + div > div{
+            font-weight: bold;
+            font-size: small;
+            font-family: sans-serif;
+            margin-right: 50px;
+        }
+
+        h3 {
+            text-align: center;
+            font-family: sans-serif;
+           font-weight: bold;
+            
+        }
+
+        span {
+            color: red;
+           text-decoration: underline yellow;
+           font-family: sans-serif;
+           font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h3>Masai in <span>News</span></h3>
+    <div id="container">
+        <div>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRju5kN27hH01IMVSj6E7EGIMLSO4mTaZkm3A&usqp=CAU" alt="">
+        </div>
+        <div>
+            <img src="https://www.webit.org/india/2016/img/logo/bw.png" alt="">
+        </div>
+        <div>
+            <img src="https://www.logo.wine/a/logo/CNBC/CNBC-Logo.wine.svg" alt="">
+        </div>
+    </div>
+    <div>
+        <div>masai sees 300% increase in student <br> placement amid market jitters</div>
+        <div> job tech startup masai school raises <br> $10 million in series B</div>
+        <div>masai school targets fiive-fold <br> revenue growth in three years</div>
+    </div>
+</body>
+</html>

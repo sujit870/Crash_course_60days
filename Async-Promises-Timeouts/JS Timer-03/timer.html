@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timer</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  #timer-container {
+    display: flex;
+    justify-content: center;
+  }
+  #timer-box {
+    background: linear-gradient(to bottom right, #4CAF50, #45a049);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  input {
+    width: 40px;
+    margin: 0 5px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  #timer {
+    font-size: 2em;
+    margin: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  #buttons {
+    margin: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+  label {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+</style>
+</head>
+<body>
+<div id="timer-container">
+  <div id="timer-box">
+    <div>
+      <input type="text" id="hours" maxlength="2" size="2" oninput="this.value=this.value.slice(0,this.maxLength)">
+      <label for="hours">h</label> :
+      <input type="text" id="minutes" maxlength="2" size="2" oninput="this.value=this.value.slice(0,this.maxLength)">
+      <label for="minutes">m</label> :
+      <input type="text" id="seconds" maxlength="2" size="2" oninput="this.value=this.value.slice(0,this.maxLength)">
+      <label for="seconds">s</label>
+    </div>
+    <div id="timer">00:00:00</div>
+    <div id="buttons">
+      <button id="startStopButton" onclick="startStop()">Start</button>
+      <button onclick="reset()">Reset</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let timer;
+  let totalSeconds = 0;
+  let isRunning = false;
+
+  function startStop() {
+    if (isRunning) {
+      clearInterval(timer);
+      document.getElementById('startStopButton').innerText = 'Start';
+    } else {
+      const hours = parseInt(document.getElementById('hours').value) || 0;
+      const minutes = parseInt(document.getElementById('minutes').value) || 0;
+      const seconds = parseInt(document.getElementById('seconds').value) || 0;
+      totalSeconds = hours * 3600 + minutes * 60 + seconds;
+      timer = setInterval(updateTimer, 1000);
+      document.getElementById('startStopButton').innerText = 'Stop';
+    }
+    isRunning = !isRunning;
+  }
+
+  function reset() {
+    clearInterval(timer);
+    totalSeconds = 0;
+    updateDisplay();
+    isRunning = false;
+    document.getElementById('startStopButton').innerText = 'Start';
+  }
+
+  function updateTimer() {
+    if (totalSeconds <= 0) {
+      clearInterval(timer);
+      isRunning = false;
+      document.getElementById('startStopButton').innerText = 'Start';
+      return;
+    }
+    totalSeconds--;
+    updateDisplay();
+  }
+
+  function updateDisplay() {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    const formattedTime = formatTime(hours, minutes, seconds);
+    document.getElementById('timer').innerText = formattedTime;
+  }
+
+  function formatTime(hours, minutes, seconds) {
+    const formattedHours = hours < 10 ? '0' + hours : hours;
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+    const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+  }
+</script>
+</body>
+</html>

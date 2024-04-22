@@ -1,0 +1,75 @@
+!<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events</title>
+  </head>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom right, #7b4397, #dc2430);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #f3f3f3;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .image {
+      width: 80%;
+      height: 50%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    .image:hover {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
+
+    .text {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+      margin: 0;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <img
+        src="https://miro.medium.com/max/1400/1*mdcu3Ku9r44HMtraHUqu5g.jpeg"
+        alt="Image"
+        id="warningImage"
+        class="image"
+      />
+      <p class="text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a ipsum
+        vel leo aliquam cursus. <br />
+        Sed eu dapibus felis, sit amet cursus metus. Maecenas et scelerisque mi,
+        vel condimentum nisi.br <br />
+        Phasellus vitae arcu aliquet, cursus libero nec, ultricies mi.
+        Vestibulum venenatis sapien non velit iaculis, quis sodales nisi cursus.
+      </p>
+    </div>
+    <script>
+      const imageElement = document.getElementById("warningImage");
+      imageElement.addEventListener("click", function () {
+        alert(
+          "The website you are going to visit may harm your computer. Do you still want to redirect?"
+        );
+      });
+    </script>
+  </body>
+</html>

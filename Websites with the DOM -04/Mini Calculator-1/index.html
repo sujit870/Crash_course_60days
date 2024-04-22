@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    .parent{
+       
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    .parent2{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 50px;
+    }
+</style>
+<body>
+    <div class="parent">
+        <div>
+            <label for="num1">Number 1:</label>
+            <input type="number" id="num1">
+        </div>
+        <div>
+            <label for="num2">Number 2:</label>
+            <input type="number" id="num2">
+        </div>
+    </div>
+        <div class="parent2">
+            <button id="addBtn">Add</button>
+            <button id="subtractBtn">Subtract</button>
+            <button id="divideBtn">Divide</button>
+            <button id="multiplyBtn">Multiply</button>
+        </div>
+    
+    
+</body>
+</html>
+<script>
+    // Function to get the values from input boxes
+function getInputValues() {
+    const num1 = parseFloat(document.getElementById('num1').value);
+    const num2 = parseFloat(document.getElementById('num2').value);
+    return { num1, num2 };
+}
+
+// Function to handle addition
+function handleAddition() {
+    const { num1, num2 } = getInputValues();
+    const result = num1 + num2;
+    alert(result);
+}
+
+// Function to handle subtraction
+function handleSubtraction() {
+    const { num1, num2 } = getInputValues();
+    const result = num1 - num2;
+    alert(result);
+}
+
+// Function to handle division
+function handleDivision() {
+    const { num1, num2 } = getInputValues();
+    if (num2 === 0) {
+        alert('Division by zero is not allowed');
+    } else {
+        const result = num1 / num2;
+        alert(result);
+    }
+}
+
+// Function to handle multiplication
+function handleMultiplication() {
+    const { num1, num2 } = getInputValues();
+    const result = num1 * num2;
+    alert(result);
+}
+
+// Add event listeners to buttons
+document.getElementById('addBtn').addEventListener('click', handleAddition);
+document.getElementById('subtractBtn').addEventListener('click', handleSubtraction);
+document.getElementById('divideBtn').addEventListener('click', handleDivision);
+document.getElementById('multiplyBtn').addEventListener('click', handleMultiplication);
+
+</script>
