@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Template</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    // Your task starts here
+
+    let paragraph = React.createElement("p", null, "Seize the day");
+
+    let root = document.getElementById("root");
+
+    ReactDOM.createRoot(root).render(paragraph);
+
+
+     // Reflection: 
+    // React's approach offers a cleaner and more declarative way to create UI elements compared to traditional DOM manipulation.
+    // With React, we focus on what the UI should look like at any given point, rather than imperatively updating the DOM.
+    // This leads to more maintainable code, easier debugging, and better separation of concerns.
+  </script>
+</html>

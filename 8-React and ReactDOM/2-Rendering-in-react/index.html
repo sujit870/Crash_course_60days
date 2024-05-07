@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+        // Objective 1: Simple JSX Element
+    function SimpleElement() {
+      return React.createElement('p', null, 'Seize the day');
+    }
+
+    // Objective 2: Dynamic Content in JSX
+    function DynamicContent() {
+      const text = "Seize the day";
+      return React.createElement('p', null, text);
+    }
+
+    // Objective 3: Conditional Rendering in JSX
+    function ConditionalRendering() {
+      const condition = true; // Change this value to toggle between paragraphs
+      return React.createElement('div', null,
+        condition ? React.createElement('p', null, 'Carpe diem') : React.createElement('p', null, 'Seize the day')
+      );
+    }
+
+    // Rendering components
+    ReactDOM.render(
+      React.createElement(SimpleElement),
+      document.getElementById('root')
+    );
+
+    // Uncomment to render DynamicContent component
+    // ReactDOM.render(
+    //   React.createElement(DynamicContent),
+    //   document.getElementById('root')
+    // );
+
+    // Uncomment to render ConditionalRendering component
+    // ReactDOM.render(
+    //   React.createElement(ConditionalRendering),
+    //   document.getElementById('root')
+    // );
+    </script>
+  </body>
+</html>
