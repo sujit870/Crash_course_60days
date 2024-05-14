@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        // TodoList Component
+        function TodoList() {
+            // State for storing todos
+            const [todos, setTodos] = React.useState([]);
+            // State for filtering todos
+            const [filter, setFilter] = React.useState('all');
+
+            // Function to handle adding a new todo
+            function addTodo() {
+                const todoText = prompt("Enter your new task:");
+                if (todoText) {
+                    setTodos([...todos, { text: todoText, completed: false }]);
+                }
+            }
+
+            // Function to handle toggling the completion status of a todo
+            function toggleTodo(index) {
+                const newTodos = [...todos];
+                newTodos[index].completed = !newTodos[index].completed;
+                setTodos(newTodos);
+            }
+
+            // Function to handle removing a todo
+            function removeTodo(index) {
+                const newTodos = [...todos];
+                newTodos.splice(index, 1);
+                setTodos(newTodos);
+            }
+
+            // Function to handle filtering todos
+            function filterTodos(filter) {
+                setFilter(filter);
+            }
+
+            // Filter todos based on the selected filter
+            const filteredTodos = filter === 'all' ? todos :
+                filter === 'active' ? todos.filter(todo => !todo.completed) :
+                todos.filter(todo => todo.completed);
+
+            return (
+                <div>
+                    <h2>Todo List</h2>
+                    <button onClick={addTodo}>Add Todo</button>
+                    <div>
+                        <button onClick={() => filterTodos('all')}>All</button>
+                        <button onClick={() => filterTodos('active')}>Active</button>
+                        <button onClick={() => filterTodos('completed')}>Completed</button>
+                    </div>
+                    <ul>
+                        {filteredTodos.map((todo, index) => (
+                            <li key={index} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+                                <input
+                                    type="checkbox"
+                                    checked={todo.completed}
+                                    onChange={() => toggleTodo(index)}
+                                />
+                                <span>{todo.text}</span>
+                                <button onClick={() => removeTodo(index)}>Remove</button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
+
+        // Render the TodoList component
+        ReactDOM.render(<TodoList />, document.getElementById('root'));
+    </script>
+</body>
+</html>

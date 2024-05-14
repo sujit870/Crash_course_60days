@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function Quiz() {
+            const questions = [
+                {
+                    question: "What is the capital of France?",
+                    options: ["London", "Paris", "Berlin", "Madrid"],
+                    correctAnswer: "Paris"
+                },
+                {
+                    question: "What is 2 + 2?",
+                    options: ["3", "4", "5", "6"],
+                    correctAnswer: "4"
+                },
+                {
+                    question: "What is the largest planet in our solar system?",
+                    options: ["Earth", "Jupiter", "Saturn", "Mars"],
+                    correctAnswer: "Jupiter"
+                }
+            ];
+
+            const [answers, setAnswers] = React.useState(Array(questions.length).fill(""));
+            const [showScore, setShowScore] = React.useState(false);
+            const [score, setScore] = React.useState(0);
+
+            // Function to handle change in answers
+            function handleAnswerChange(index, selectedAnswer) {
+                const newAnswers = [...answers];
+                newAnswers[index] = selectedAnswer;
+                setAnswers(newAnswers);
+            }
+
+            // Function to handle form submission
+            function handleSubmit() {
+                let newScore = 0;
+                for (let i = 0; i < questions.length; i++) {
+                    if (answers[i] === questions[i].correctAnswer) {
+                        newScore++;
+                    }
+                }
+                setScore(newScore);
+                setShowScore(true);
+            }
+
+            // Function to restart the quiz
+            function restartQuiz() {
+                setAnswers(Array(questions.length).fill(""));
+                setShowScore(false);
+                setScore(0);
+            }
+
+            return (
+                <div>
+                    {!showScore ? (
+                        <div>
+                            {/* Render questions and options */}
+                            {questions.map((question, index) => (
+                                <div key={index}>
+                                    <h3>{question.question}</h3>
+                                    {question.options.map((option, optionIndex) => (
+                                        <div key={optionIndex}>
+                                            <input
+                                                type="radio"
+                                                id={`option${index}-${optionIndex}`}
+                                                name={`question${index}`}
+                                                value={option}
+                                                checked={answers[index] === option}
+                                                onChange={() => handleAnswerChange(index, option)}
+                                            />
+                                            <label htmlFor={`option${index}-${optionIndex}`}>{option}</label>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                            {/* Button to submit the quiz */}
+                            <button onClick={handleSubmit}>Submit</button>
+                        </div>
+                    ) : (
+                            <div>
+                                {/* Show score after submission */}
+                                <h2>Your Score: {score}/{questions.length}</h2>
+                                {/* Button to restart the quiz */}
+                                <button onClick={restartQuiz}>Restart Quiz</button>
+                            </div>
+                        )}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Quiz />, document.getElementById('root'));
+    </script>
+</body>
+</html>
