@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .todo-item {
+        margin-bottom: 10px;
+      }
+      .completed {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/babel">
+      // ToDoList Component
+      class ToDoList extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            todos: [],
+            inputValue: ""
+          };
+        }
+
+        // Function to handle input change
+        handleInputChange = (event) => {
+          this.setState({ inputValue: event.target.value });
+        };
+
+        // Function to add new todo
+        addTodo = () => {
+          const { inputValue, todos } = this.state;
+          if (inputValue.trim() !== "") {
+            const newTodo = {
+              id: todos.length + 1,
+              content: inputValue,
+              completed: false
+            };
+            this.setState({
+              todos: [...todos, newTodo],
+              inputValue: ""
+            });
+          }
+        };
+
+        // Function to delete todo
+        deleteTodo = (id) => {
+          this.setState({
+            todos: this.state.todos.filter((todo) => todo.id !== id)
+          });
+        };
+
+        // Function to toggle completion status
+        toggleCompletion = (id) => {
+          this.setState({
+            todos: this.state.todos.map((todo) =>
+              todo.id === id ? { ...todo, completed: !todo.completed } : todo
+            )
+          });
+        };
+
+        render() {
+          const { todos, inputValue } = this.state;
+          return (
+            <div>
+              <h1>ToDo List</h1>
+              <input
+                type="text"
+                value={inputValue}
+                onChange={this.handleInputChange}
+              />
+              <button onClick={this.addTodo}>Add</button>
+              <ul>
+                {todos.map((todo) => (
+                  <li key={todo.id} className={todo.completed ? "completed" : ""}>
+                    <input
+                      type="checkbox"
+                      checked={todo.completed}
+                      onChange={() => this.toggleCompletion(todo.id)}
+                    />
+                    <span>{todo.content}</span>
+                    <button onClick={() => this.deleteTodo(todo.id)}>Delete</button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<ToDoList />, document.getElementById("root"));
+    </script>
+  </body>
+</html>

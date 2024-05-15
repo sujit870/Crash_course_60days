@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profiles</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .search-input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+      .user-profile {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // UserProfile Component
+      function UserProfile({ user }) {
+        return (
+          <div className="user-profile">
+            <h2>{user.name}</h2>
+            <p>Email: {user.email}</p>
+          </div>
+        );
+      }
+
+      // App Component
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            users: [], // Array of user profiles
+            searchQuery: "" // User input for search
+          };
+        }
+
+        // Fetch user data (simulate API call)
+        componentDidMount() {
+          // Mock user data
+          const usersData = [
+            { id: 1, name: "John Doe", email: "john@example.com" },
+            { id: 2, name: "Alice Smith", email: "alice@example.com" },
+            { id: 3, name: "Bob Johnson", email: "bob@example.com" }
+          ];
+          this.setState({ users: usersData });
+        }
+
+        // Function to handle search input change
+        handleSearchChange = (event) => {
+          this.setState({ searchQuery: event.target.value });
+        };
+
+        render() {
+          const { users, searchQuery } = this.state;
+          // Filter users based on search query
+          const filteredUsers = users.filter((user) =>
+            user.name.toLowerCase().includes(searchQuery.toLowerCase())
+          );
+          return (
+            <div className="container">
+              <h1>User Profiles</h1>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search by name"
+                value={searchQuery}
+                onChange={this.handleSearchChange}
+              />
+              {filteredUsers.map((user) => (
+                <UserProfile key={user.id} user={user} />
+              ))}
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
